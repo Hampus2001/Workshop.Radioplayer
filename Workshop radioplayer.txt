@@ -1,0 +1,43 @@
+Workshop radioplayer
+
+1. What is OWASP and what is its primary mission as described in the article?
+
+OWASP är en internationell organisation som arbetar med att styrka säkerheten på internet genom att dela ut bl.a.. utbildningsmaterial helt gratis. 
+
+
+2. Explain the concept of "Injection". Provide an example of how an injection attack could compromise a web application's security.
+
+En injektionsattack innebär att man skjuter in kod eller kommandon i ett program för att exempelvis få tillgång till obehörig data. 
+Ett exempel på en injektionsattck är SQL-injektion som används för att hämta data från SQL databaser. Man lurar helt enkelt systemet genom att manipulerar sättet
+data återfås.  Om programmet frågar efter student-ID i ett textfält kan den som attackerar programmets data skriva "177 OR 1=1".  När programmet sen söker efter värdet bland alla student-id kommer 
+allas data returneras då 1=1 alltid är sant.
+
+
+3. Explain two strategies to prevent Broken Authentication vulnerabilities.
+
+En av metoderna för att öka säkerheten är att använda sig utav flera typer av autentisering. Detta gör du inte bara kan logga in med lösenord utan krävs
+på ytterligare autentisering.  Många företag använder sig utav 3 stycken olika typer av autentisering:
+
+* Något du vet (lösenord)
+* Något du har (En authenticator app) 
+* Något du är( face-id eller fingeravtryck).
+
+En annan metod för att säkerställa säkerheten online är att använda sig utav sessionshantering där man ger användaren ett nytt sessions-id varje gång hen loggar in.  
+Varje sessions-id får en tidsbegränsning i inaktivt läge för att det inte ska ligga kvar och utnyttjas av obehöriga. 
+
+
+4. Describe the potential consequences of Insecure Deserialization in web applications. How can developers protect against such attacks?
+
+Potentiellt hot om man har en osäker avserialiseringexploatering är attacker såsom DDos och fjärrkörning av kod. 
+Det enda sättet att skydda sig mot dessa attacker är att inte tillåta deserialisering av data från opålitliga sidor.
+
+5. Briefly define Cross-Site Scripting (XSS) as outlined in the article and list two methods suggested in the article to prevent XSS attacks in web applications.
+
+Cross-site scripting är ungefär samma sak som injektionsattacken jag nämnde tidigare. 
+Den som attackerar fäster skadlig kod på olika ställen på en legitim hemsida sedan skickar hen den injicerade länken till ett offer.
+När offret öppnar länken körs hemsidan som vanligt samtidigt som den skadliga koden körs.
+
+Exempel på två metoder som förebygger cross-site scripting:
+1. Sanitize data - Använd online verktyg för att filtrera bort skadlig data innan den når nya användare. 
+2. Taking cookie security measures - Man kopplar cookies till IP-adresser för att göra det svårare att komma åt den. 
+Man kan även skapa regler för att blockera JavaScript från att komma åt cookies.
